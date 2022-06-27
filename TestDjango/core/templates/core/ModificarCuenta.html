@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
-    <title>Suscribirse</title>
+    <title>Modificar Cuenta</title>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,7 +34,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{% url 'Historial' %}">Historial</a>
-                    <!--En esta seccion debe listar los productos pero sin detalle-->
+                    <!--En esta seccion debe listar los productos ero sin detalle-->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'TuCuenta' %}">Tu cuenta</a>
@@ -52,6 +50,22 @@
 </nav>
 
 <body id="body">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-2">
+            <div class="col-md-8">
+                <form method="POST" action="" id="formulario">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.as_table}}
+                    </div>
+            </div>
+            <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+            <div id="error" class="alert alert-danger" role="alert"></div>
+            </form>
+        </div>
+    </div>
 
 </body>
 
