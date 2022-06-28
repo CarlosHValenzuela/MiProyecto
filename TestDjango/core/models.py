@@ -19,3 +19,10 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombreProducto
+
+class Suscripcion(models.Model):
+    idSuscripcion = models.IntegerField(primary_key=True, verbose_name="Id de la suscripcion")
+    nombreCliente = models.CharField(max_length=250,verbose_name="Nombre del suscriptor")
+
+    def __str__(self):
+        return self.nombreCliente

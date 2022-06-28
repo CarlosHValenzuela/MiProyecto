@@ -60,7 +60,14 @@ def Carrito(request):
 
 
 def Historial(request):
-    return render(request, 'core/Historial.html')
+
+    productos= Producto.objects.all()
+
+    datos = {
+        'productos': productos
+    }
+
+    return render(request, 'core/Historial.html',datos)
 
 
 
