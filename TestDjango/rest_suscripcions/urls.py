@@ -1,5 +1,5 @@
 from django import urls
-from django.urls import URLPattern, path
+from django.urls import path
 from rest_suscripcions.views import lista_suscripciones,detalle_suscripcion
 from rest_suscripcions.viewslogin import login
 

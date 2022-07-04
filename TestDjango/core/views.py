@@ -1,7 +1,7 @@
 from urllib import request
 from django.shortcuts import render,redirect
-from .forms import CuentaForm, ProductoForm
-from .models import Cuenta, Producto
+from .forms import CuentaForm, ProductoForm,SuscripcionForm
+from .models import Cuenta, Producto, Suscripcion
 
 # Create your views here.
 
@@ -38,8 +38,51 @@ def Seguimiento(request):
     return render(request, 'core/Seguimiento.html',datos)
 
 def Suscribirse(request):
-    return render(request, 'core/Suscribirse.html')
+    suscripcion= Suscripcion.objects.all()
 
+    datos = {
+        'suscripcion': suscripcion
+    }
+    return render(request, 'core/Suscribirse.html',datos)
+
+def NuevaSuscripcion(request):
+    datos = {
+        'form': SuscripcionForm()
+
+    }
+    if request.method== 'POST':
+        formulario = SuscripcionForm(request.POST)
+
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Datos Guardados"
+
+    return render(request,'core/NuevaSuscripcion.html',datos)
+
+def ModificarSuscripcion(request,id):
+    suscripcion = Suscripcion.objects.get(idSuscripcion=id)
+
+    datos = {
+        'form':SuscripcionForm(instance=suscripcion)
+
+    }
+
+    if request.method == 'POST':
+        formulario = SuscripcionForm(data=request.POST,instance=suscripcion)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Modificacion realizada"
+
+
+    return render(request, 'core/ModificarSuscripcion.html', datos)
+    
+
+def EliminarSuscripcion(request,id):
+    suscripcion = Suscripcion.objects.get(idSuscripcion=id)
+
+    suscripcion.delete()
+
+    return redirect(to="Suscribirse")
 
 
 def Carrito(request):
