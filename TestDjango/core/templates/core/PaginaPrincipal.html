@@ -8,10 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
-        crossorigin="anonymous"></script>
     <title>Pagina Principal</title>
 </head>
 
@@ -253,13 +249,25 @@
         </div>
     </div>
     <!--Inicio Productos Primera Linea-->
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
-
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Sistema Ventas</title>
+        <link href="dist/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <style>
+            #map{
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+    </head>
     <body class="sb-nav-fixed">
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -273,35 +281,31 @@
                         </div>
                     </div>
                 </main>
-
+                
             </div>
         </div>
         <script src="src/js/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="dist/js/scripts.js"></script>
         <!--llamada al mapa de google-->
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUD1-miJsYqMWKMVFRXBdlROZSgCDzb4&callback=initMap&libraries=&v=weekly"
-            async></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZUD1-miJsYqMWKMVFRXBdlROZSgCDzb4&callback=initMap&libraries=&v=weekly" async></script>
         <script>
-            function initMap() {
+            function initMap(){
                 // Definir posición inicial del mapa
                 // Duoc A. VAras -33.43322711703853, -70.61559467200837
-                const tienda = { lat: -33.43252210197763, lng: -70.58555994405793 }
+                const tienda = {lat:-33.43252210197763,lng: -70.58555994405793}
                 // inicializar el mapa indicando el div donde está y las popiedades iniciales
                 const map = new google.maps.Map(
-                    document.getElementById("map"), { zoom: 15, center: tienda }
+                    document.getElementById("map"),{zoom: 15,center: tienda}
                 );
 
-                const marker = new google.maps.Marker({ position: tienda, map: map });
+                const marker = new google.maps.Marker({position:tienda,map:map});
 
 
             }
         </script>
-
+       
     </body>
-
 </html>
 </body>
 
@@ -316,6 +320,6 @@
 
 
 <!--Inicio Productos Primera Linea-->
-<!--ADMIN CREDENCIALES-->
-<!--Usuario: Mascotas-->
-<!--Contraseña: Mascotas123-->
+ <!--ADMIN CREDENCIALES-->
+ <!--Usuario: Mascotas-->
+ <!--Contraseña: Mascotas123-->
